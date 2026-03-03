@@ -1,0 +1,297 @@
+$env.config
+$env.config_path
+$nu.config-path
+$nu.env-path
+$nu
+ls
+pwd
+ls
+ls | where name ~= "dart"
+ls | where name =~ "dart"
+ls
+yazi
+exit
+which sudo
+which sudo | get path
+which sudo | get path | win32yank.exe -i
+which sudo | get 0.path | win32yank.exe -i
+exit
+ls
+ls | where name =~ backup
+ls | where name =~ backup | rm
+ls | where name =~ backup | each { rm $in.name }
+ls
+yazi
+zed .
+exit  "prettier": { "allowed": false },z
+exit
+ls **/* | where type == dir | sort-by size --reverse
+ls **/* | where type == dir | sort-by size
+ls **/* | where type == file | sort-by size
+ls **/* | where type == file | sort-by size --reverse
+exit
+cls
+z quantumthor
+which z
+nu --help
+exit
+which flutter
+which dart
+exit
+ls -R | where type == File | update linecount { open $in.name | lines | length } | math sum linecount
+ls **/* | where type == File | update linecount { open $in.name | lines | length } | math sum linecount
+ls **/* | where type == File | update linecount { open $in.name | lines | length } | math sum
+ls **/* | where type == File | update linecount { open $in.name | lines | length }
+ls **/* | where type == file | update linecount { open $in.name | lines | length }
+ls **/* | where type == file
+ls **/* | where type == file | each {}
+ls **/* | where type == file | each { name }
+ls **/* | where type == file | each { echo  $in }
+ls **/* | where type == file | each { |file| echo file }
+ls **/* | where type == file | each { |file| echo $file }
+ls **/* | where type == file | each { open $in.name | lines | length } | math sum
+lines
+which wc
+find . -type f | xargs wc -l | math sum
+ls **/* | xargs wc -l | math sum
+# Counts lines in files recursively, skipping binaries and specified exclusions.
+def count-loc [<\n>    path: path = "."                    # The root directory to search (default: current)<\n>    --exclude: list<string> = [         # Directories to exclude<\n>        ".git", "target", "node_modules", "dist", "build"<\n>    ]<\n>] {<\n>    # Validate input path exists<\n>    if not ($path | path exists) {<\n>        error make { msg: $"Path does not exist: ($path)" }<\n>    }<\n><\n>    # Construct the exclusion pattern for glob<\n>    # Note: glob exclusion syntax depends on specific Nushell version nuances; <\n>    # explicit filtering post-glob is often more reliable for complex lists.<\n>    let files = (glob $"($path)/**/*")<\n><\n>    $files<\n>    | par-each {|file|<\n>        # 1. Filter: Must be a file<\n>        if ($file | path type) != "file" { return 0 }<\n><\n>        # 2. Filter: Check exclusions against path components<\n>        let components = ($file | path split)<\n>        if ($components | any {|part| $part in $exclude}) { return 0 }<\n><\n>        # 3. Execution: Count lines safely<\n>        # We use 'open --raw' to avoid auto-parsing formats like JSON/TOML,<\n>        # treating everything as text. 'try' handles binary read failures.<\n>        try {<\n>            open --raw $file | lines | length<\n>        } catch {<\n>            # Returns 0 for binaries or permission-locked files<\n>            0 <\n>        }<\n>    }<\n>    | math sum<\n>}
+count-loc
+ls **/* | where type == file 
+| where name !~ "\\.(git|png|jpg|exe|dll)$" # Basic regex exclusion
+| get name 
+| par-each {|f| open --raw $f | lines | length } 
+ls **/* | where type == file |<\n>
+where name !~ "\\.(git|png|jpg|exe|dll)$" # Basic regex exclusion |
+get name |<\n>
+par-each {|f| open --raw $f | lines | length } |<\n>
+which task
+task up
+podman machine list
+http get http://localhost:8083/healthz
+http get http://localhost:8080/healthz
+task down
+uv tool --help
+uv tool install podman-compose
+ls
+ls -a
+which podman-compose
+yazi
+$env
+$env.UV_INSTALL_DIR
+$env
+which podman-compose.exe 
+$env.UV_CACHE_DIR
+$env.UV_TOOL_DIR
+uv tool uninstall podman-compose
+uv tool install podman-compose
+which speedtest
+speedtest
+uv tool uninstall speedtest
+which speedtest
+uv tool uninstall speedtest-cli
+uv tool install speedtest-cli
+which basedpyright-langserver.exe 
+uv tool uninstall basedpyright
+uv tool install basedpyright
+which docker-compose
+scoop uninstall -p docker-compose
+exit
+cls
+exit
+yazi
+task down
+task up
+task down
+exit
+uv tool uninstall podman-compose
+scoop install -p docker-compose
+scoop install -i docker-compose
+task up
+task down
+scoop uninstall -p docker-compose
+uv tool install podman-compose
+task up
+scoop install -i docker-compose
+uv tool uninstall podman-compose
+ls | where type = file
+ls
+ls * | where type = file
+ls **/* | where type == file
+ls ./* | where type == file
+z gen
+cd gen
+go mod tidy
+go --version
+go version
+go mod tidy
+ls
+rn --help
+mv backend\edge-gateway\ backend\gateway-service
+explorer .
+which biome
+zed .
+explorer .
+task up
+cd backend\gateway-service\
+go mod tidy
+cd ..
+task up
+task down
+podman compose format=json
+podman compose ps --format=json
+podman compose ps --format=json | from json
+(podman compose ps --format=json) | from json
+from json (podman compose ps --format=json)
+from json --(podman compose ps --format=json)
+task stack:status
+podman compose ps --help
+podman compose ps --no-trunc
+podman ps
+podman --help
+podman healthcheck
+podman ps --help
+podman ps-a
+podman ps -a
+podman compose ps --format=json
+"[" + "]"
+"[" + (podman compose ps --format=json) + "]" | from json
+"[" + (podman compose ps --format=json) + "]"
+"[" + (podman compose ps --format=json) + "]" | from json
+"[" + (podman compose ps --format=json) + "]" | from json | get Name,Health
+"[" + (podman compose ps --format=json) + "]" | from json | get Name Health
+"[" + (podman compose ps --format=json) + "]" | from json | get Health
+"[" + (podman compose ps --format=json) + "]" | from json | get Health,Name
+podman compose ps --format json | jq -r '<\n>  ["NAME", "STATUS", "HEALTH"],<\n>  (.[] | [.Name, .Status, .Health])<\n>  | @tsv' | column -t
+task stack:status
+podman compose --help
+podman compose ps --help
+task down
+task stack:down
+docker-compose --help
+podman compose --help
+uv tool install podman-compose
+podman-compose ps
+task stack:up
+podman-compose ps
+docker-compose ps
+uv tool uninstall podman-compose
+docker-compose ps --format=json
+docker-compose ps --format=table
+docker-compose ps --help
+docker-compose ps --format='table'
+docker-compose ps --format='table HEALTH'
+docker-compose ps --format='table {{.HEALTH}}'
+docker-compose ps --format='table {.HEALTH}'
+docker-compose ps --format='table{.HEALTH}'
+docker-compose ps --format='{.HEALTH}'
+docker-compose ps --format='{HEALTH}'
+docker-compose ps --format='{{HEALTH}}'
+docker-compose ps --format='{{status}}'
+docker-compose ps --format='{{STATUS}}'
+docker-compose ps --format="{{.Status}}"
+docker-compose ps --format="table {{.Status}}"
+docker-compose ps --format="table {{.Status}}\t{{.Health}}"
+podman compose ps --format="table {{.Status}}\t{{.Health}}"
+podman compose ps --format="table {{.Status}}{{.Health}}"
+podman compose ps --format="table {{.Status}} ({{.Health}})"
+podman compose ps --format="table {{.Name}}\t{{.Status}} ({{.Health}})"
+podman compose ps --format="table {{.Name}}\t{{.Status}} ({{.Health}})\t{{.Command}}\t{{.Ports}}\t{{.Networks}}"
+podman compose ps --format="table {{.Name}}\t{{.Status}} ({{.Health}})\t{{.Ports}}\t{{.Networks}}"
+podman compose ps --format="table {{.Name}}\t{{.Status}} ({{.Health}})\t{{.Image}}\t{{.Ports}}\t{{.Networks}}"
+podman compose ps --format="table {{.Name}}\t{{.Service}}\t{{.Status}} ({{.Health}})\t{{.Image}}\t{{.Ports}}\t{{.Networks}}"
+podman compose ps --format="table {{.Name}}\t{{.Service}}\t{{.Status}} ({{.Health}})\t{{.Image}}\t{{.Ports}}\t{{.Network}}"
+podman compose ps --format="table {{.Name}}\t{{.Service}}\t{{.Status}} ({{.Health}})\t{{.Image}}\t{{.Ports}}\t{{.Networks}}"
+podman compose ps --format="table {{.Id}}\t{{.Name}}\t{{.Service}}\t{{.Status}} ({{.Health}})\t{{.Image}}\t{{.Ports}}\t{{.Networks}}"
+podman compose ps --format="table {{.ID}}\t{{.Name}}\t{{.Service}}\t{{.Status}} ({{.Health}})\t{{.Image}}\t{{.Ports}}\t{{.Networks}}"
+"[" + (podman compose ps --format=json) + "]" | from json | get Network
+"[" + (podman compose ps --format=json) + "]" | from json | get Networks
+"[" + (podman compose ps --format=json) + "]" | from json
+"[" + (podman compose ps --format=json) + "]" | from json | get proje
+"[" + (podman compose ps --format=json) + "]" | from json | get project
+"[" + (podman compose ps --format=json) + "]" | from json | get Project
+podman compose ps --format="table {{.ID}}\t{{.Name}}\t{{.Project}}\t{{.Service}}\t{{.Status}} ({{.Health}})\t{{.Image}}\t{{.Ports}}\t{{.Networks}}"
+podman compose ps --format="table {{.ID}}\t{{.Name}}\t{{.Service}}\t{{.Status}} ({{.Health}})\t{{.Image}}\t{{.Ports}}\t{{.Networks}}"
+task stack:status
+clspodman compose ps --format="table {{.ID}}\t{{.Name}}\t{{.Service}}\t{{.Status}} ({{.Health}})\t{{.Image}}\t{{.Ports}}\t{{.Networks}}"
+cls
+task stack:status
+cls
+ls
+ls ./* | where type == file
+ls ./* | where type == file | echo $0
+ls ./* | where type == file | echo $in
+ls ./* | where type == file | echo $in.name
+def count-loc [<\n>    path: path = "."                    # The root directory to search (default: current)<\n>    --exclude: list<string> = [         # Directories to exclude<\n>        ".git", "target", "node_modules", "dist", "build"<\n>    ]<\n>] {<\n>    # Validate input path exists<\n>    if not ($path | path exists) {<\n>        error make { msg: $"Path does not exist: ($path)" }<\n>    }<\n><\n>    # Construct the exclusion pattern for glob<\n>    # Note: glob exclusion syntax depends on specific Nushell version nuances; <\n>    # explicit filtering post-glob is often more reliable for complex lists.<\n>    let files = (glob $"($path)/**/*")<\n><\n>    $files<\n>    | par-each {|file|<\n>        # 1. Filter: Must be a file<\n>        if ($file | path type) != "file" { return 0 }<\n><\n>        # 2. Filter: Check exclusions against path components<\n>        let components = ($file | path split)<\n>        if ($components | any {|part| $part in $exclude}) { return 0 }<\n><\n>        # 3. Execution: Count lines safely<\n>        # We use 'open --raw' to avoid auto-parsing formats like JSON/TOML,<\n>        # treating everything as text. 'try' handles binary read failures.<\n>        try {<\n>            open --raw $file | lines | length<\n>        } catch {<\n>            # Returns 0 for binaries or permission-locked files<\n>            0 <\n>        }<\n>    }<\n>    | math sum<\n>}
+def count-loc     path: path = "."                    # The root directory to search (default: current)<\n>    --exclude: list<string> = [         # Directories to exclude<\n>        ".git", "target", "node_modules", "dist", "build"<\n>    ]<\n>] {<\n>    # Validate input path exists<\n>    if not ($path | path exists) {<\n>        error make { msg: $"Path does not exist: ($path)" }<\n>    }<\n><\n>    # Construct the exclusion pattern for glob<\n>    # Note: glob exclusion syntax depends on specific Nushell version nuances; <\n>    # explicit filtering post-glob is often more reliable for complex lists.<\n>    let files = (glob $"($path)/**/*")<\n><\n>    $files<\n>    | par-each {|file|<\n>        # 1. Filter: Must be a file<\n>        if ($file | path type) != "file" { return 0 }<\n><\n>        # 2. Filter: Check exclusions against path components<\n>        let components = ($file | path split)<\n>        if ($components | any {|part| $part in $exclude}) { return 0 }<\n><\n>        # 3. Execution: Count lines safely<\n>        # We use 'open --raw' to avoid auto-parsing formats like JSON/TOML,<\n>        # treating everything as text. 'try' handles binary read failures.<\n>        try {<\n>            open --raw $file | lines | length<\n>        } catch {<\n>            # Returns 0 for binaries or permission-locked files<\n>            0 <\n>        }<\n>    }<\n>    | math sum<\n>}
+def count-loc     path: path = "."                    # The root directory to search (default: current)<\n>    --exclude: list<string> = [         # Directories to exclude<\n>        ".git", "target", "node_modules", "dist", "build"<\n>    ]<\n>] {<\n>    # Validate input path exists<\n>    if not ($path | path exists) {<\n>        error make { msg: $"Path does not exist: ($path)" }<\n>    }<\n><\n>    # Construct the exclusion pattern for glob<\n>    # Note: glob exclusion syntax depends on specific Nushell version nuances; <\n>    # explicit filtering post-glob is often more reliable for complex lists.<\n>    let files = (glob $"($path)/**/*")<\n><\n>    $files<\n>    | par-each {|file|<\n>        # 1. Filter: Must be a file<\n>        if ($file | path type) != "file" { return 0 }<\n><\n>        # 2. Filter: Check exclusions against path components<\n>        let components = ($file | path split)<\n>        if ($components | any {|part| $part in $exclude}) { return 0 }<\n><\n>        # 3. Execution: Count lines safely<\n>        # We use 'open --raw' to avoid auto-parsing formats like JSON/TOML,<\n>        # treating everything as text. 'try' handles binary read failures.<\n>        try {<\n>            open --raw $file | lines | length<\n>        } catch {<\n>            # Returns 0 for binaries or permission-locked files<\n>            0 <\n>        }    }<\n>    | math sum<\n>}
+def count-loc [<\n>    path: path = "."                    # The root directory to search (default: current)<\n>    --exclude: list<string> = [         # Directories to exclude<\n>        ".git", "target", "node_modules", "dist", "build"<\n>    ]<\n>] {<\n>    # Validate input path exists<\n>    if not ($path | path exists) {<\n>        error make { msg: $"Path does not exist: ($path)" }<\n>    }<\n><\n>    # Construct the exclusion pattern for glob<\n>    # Note: glob exclusion syntax depends on specific Nushell version nuances; <\n>    # explicit filtering post-glob is often more reliable for complex lists.<\n>    let files = (glob $"($path)/**/*")<\n><\n>    $files<\n>    | par-each {|file|<\n>        # 1. Filter: Must be a file<\n>        if ($file | path type) != "file" { return 0 }<\n><\n>        # 2. Filter: Check exclusions against path components<\n>        let components = ($file | path split)<\n>        if ($components | any {|part| $part in $exclude}) { return 0 }<\n><\n>        # 3. Execution: Count lines safely<\n>        # We use 'open --raw' to avoid auto-parsing formats like JSON/TOML,<\n>        # treating everything as text. 'try' handles binary read failures.<\n>        try {<\n>            open --raw $file | lines | length<\n>        } catch {<\n>            # Returns 0 for binaries or permission-locked files<\n>            0 <\n>        }<\n>    }<\n>    | math sum<\n>}
+count-loc
+# Computes the total line count of text-based files within a specified directory tree.
+export def "count-loc" [<\n>    target_dir: path = "."           # The root directory to evaluate.<\n>    --extensions (-e): list<string>  # Optional allowlist of file extensions (e.g., [rs, ts, py]).<\n>    --exclude (-x): list<string> = [".git", "node_modules", "target", "build", "dist", ".venv", "out"] # Directories to bypass.<\n>]: nothing -> record<files_processed: int, total_lines: int> {<\n><\n>    # Establish the recursive glob pattern dynamically based on the target directory<\n>    let glob_pattern = ($target_dir | path join "**" "*")<\n><\n>    # Isolate files to prevent attempting to read directory metadata as file content<\n>    let raw_files = (<\n>        ls -a $glob_pattern<\n>        | where type == file<\n>    )<\n><\n>    let filter_excluded = { |file|<\n>        let path_str = ($file.name | into string)<\n>        # Deconstruct path into segments to ensure exact directory name matches, <\n>        # preventing partial string match false-positives (e.g., excluding 'github' when targeting '.git')<\n>        let path_segments = ($path_str | path split)<\n>        not ($exclude | any { |ex_dir| $ex_dir in $path_segments })<\n>    }<\n><\n>    let filter_extensions = { |file|<\n>        if ($extensions == null or ($extensions | is-empty)) {<\n>            true<\n>        } else {<\n>            let ext = ($file.name | path parse | get extension)<\n>            $ext in $extensions<\n>        }<\n>    }<\n><\n>    let processed_files = (<\n>        $raw_files<\n>        | filter $filter_excluded<\n>        | filter $filter_extensions<\n>        | par-each { |file|<\n>            try {<\n>                # Utilize --raw to bypass Nushell's default structured data parsing attempts,<\n>                # ensuring files are treated strictly as string/byte streams.<\n>                let line_count = (open --raw $file.name | lines | length)<\n>                { name: $file.name, lines: $line_count }<\n>            } catch {<\n>                # Graceful degradation for unreadable or binary files that slip past extension filters.<\n>                { name: $file.name, lines: 0 }<\n>            }<\n>        }<\n>    )<\n><\n>    let total_files = ($processed_files | length)<\n>    <\n>    # Calculate final aggregate, handling the edge case of an empty result set<\n>    let total_lines = if $total_files > 0 {<\n>        $processed_files | get lines | math sum<\n>    } else {<\n>        0<\n>    }<\n><\n>    {<\n>        files_processed: $total_files, total_lines: $total_lines<\n>    }<\n>}
+# Computes the total line count of text-based files within a specified directory tree.
+export def "count-loc" [<\n>    target_dir: path = "."           # The root directory to evaluate.<\n>    --extensions (-e): list<string>  # Optional allowlist of file extensions (e.g., [rs, ts, py]).<\n>    --exclude (-x): list<string> = [".git", "node_modules", "target", "build", "dist", ".venv", "out"] # Directories to bypass.<\n>]: nothing -> record<files_processed: int, total_lines: int> {<\n><\n>    # Establish the recursive glob pattern dynamically based on the target directory<\n>    let glob_pattern = ($target_dir | path join "**" "*")<\n><\n>    # Isolate files to prevent attempting to read directory metadata as file content<\n>    let raw_files = (<\n>        ls -a $glob_pattern<\n>        | where type == file<\n>    )<\n><\n>    let filter_excluded = { |file|<\n>        let path_str = ($file.name | into string)<\n>        # Deconstruct path into segments to ensure exact directory name matches, <\n>        # preventing partial string match false-positives (e.g., excluding 'github' when targeting '.git')<\n>        let path_segments = ($path_str | path split)<\n>        not ($exclude | any { |ex_dir| $ex_dir in $path_segments })<\n>    }<\n><\n>    let filter_extensions = { |file|<\n>        if ($extensions == null or ($extensions | is-empty)) {<\n>            true<\n>        } else {<\n>            let ext = ($file.name | path parse | get extension)<\n>            $ext in $extensions<\n>        }<\n>    }<\n><\n>    let processed_files = (<\n>        $raw_files<\n>        # Updated from `filter` to `where` per 0.105.0+ syntax<\n>        | where $filter_excluded<\n>        | where $filter_extensions<\n>        | par-each { |file|<\n>            try {<\n>                # Utilize --raw to bypass Nushell's default structured data parsing attempts,<\n>                # ensuring files are treated strictly as string/byte streams.<\n>                let line_count = (open --raw $file.name | lines | length)<\n>                { name: $file.name, lines: $line_count }<\n>            } catch {<\n>                # Graceful degradation for unreadable or binary files that slip past extension filters.<\n>                { name: $file.name, lines: 0 }<\n>            }<\n>        }<\n>    )<\n><\n>    let total_files = ($processed_files | length)<\n>    <\n>    # Calculate final aggregate, handling the edge case of an empty result set<\n>    let total_lines = if $total_files > 0 {<\n>        $processed_files | get lines | math sum<\n>    } else {<\n>        0<\n>    }<\n><\n>    {<\n>        files_processed: $total_files, total_lines: $total_lines<\n>    }<\n>}
+count-loc
+cls
+# Computes the total line count of text-based files within a specified directory tree.
+export def "count-loc" [<\n>    target_dir: path = "."           # The root directory to evaluate.<\n>    --extensions (-e): list<string>  # Optional allowlist of file extensions (e.g., [rs, ts, py]).<\n>    --exclude (-x): list<string> = [".git", "node_modules", "target", "build", "dist", ".venv", "out"] # Directories to bypass.<\n>]: nothing -> record<files_processed: int, total_lines: int> {<\n><\n>    # Establish the recursive glob pattern dynamically based on the target directory<\n>    # Explicitly cast to a glob to allow expansion<\n>    let glob_pattern = ($target_dir | path join "**" "*" | into glob)<\n><\n>    # Isolate files to prevent attempting to read directory metadata as file content<\n>    let raw_files = (<\n>        ls -a $glob_pattern<\n>        | where type == file<\n>    )<\n><\n>    let filter_excluded = { |file|<\n>        let path_str = ($file.name | into string)<\n>        # Deconstruct path into segments to ensure exact directory name matches, <\n>        # preventing partial string match false-positives (e.g., excluding 'github' when targeting '.git')<\n>        let path_segments = ($path_str | path split)<\n>        not ($exclude | any { |ex_dir| $ex_dir in $path_segments })<\n>    }<\n><\n>    let filter_extensions = { |file|<\n>        if ($extensions == null or ($extensions | is-empty)) {<\n>            true<\n>        } else {<\n>            let ext = ($file.name | path parse | get extension)<\n>            $ext in $extensions<\n>        }<\n>    }<\n><\n>    let processed_files = (<\n>        $raw_files<\n>        | where $filter_excluded<\n>        | where $filter_extensions<\n>        | par-each { |file|<\n>            try {<\n>                # Utilize --raw to bypass Nushell's default structured data parsing attempts,<\n>                # ensuring files are treated strictly as string/byte streams.<\n>                let line_count = (open --raw $file.name | lines | length)<\n>                { name: $file.name, lines: $line_count }<\n>            } catch {<\n>                # Graceful degradation for unreadable or binary files that slip past extension filters.<\n>                { name: $file.name, lines: 0 }<\n>            }<\n>        }<\n>    )<\n><\n>    let total_files = ($processed_files | length)<\n>    <\n>    # Calculate final aggregate, handling the edge case of an empty result set<\n>    let total_lines = if $total_files > 0 {<\n>        $processed_files | get lines | math sum<\n>    } else {<\n>        0<\n>    }<\n><\n>    {<\n>        files_processed: $total_files, total_lines: $total_lines<\n>    }<\n>}
+count-loc
+# Computes the total line count of text-based files within a specified directory tree.
+export def "count-loc" [<\n>    target_dir: path = "."<\n>    --extensions (-e): list<string><\n>    --exclude-dirs (-d): list<string> = [<\n>        ".git", "node_modules", "target", "build", "dist", <\n>        ".venv", "out", "vendor", "public", ".next", ".nuxt", "coverage"<\n>    ]<\n>    --exclude-files (-f): list<string> = [<\n>        "package-lock.json", "yarn.lock", "pnpm-lock.yaml", <\n>        "Cargo.lock", "poetry.lock", "Gemfile.lock"<\n>    ]<\n>]: nothing -> record<files_processed: int, total_lines: int> {<\n><\n>    let glob_pattern = ($target_dir | path join "**" "*" | into glob)<\n><\n>    let raw_files = (<\n>        ls -a $glob_pattern<\n>        | where type == file<\n>    )<\n><\n>    let filter_excluded_dirs = { |file|<\n>        let path_segments = ($file.name | into string | path split)<\n>        # Prevents substring collisions by evaluating exact directory node names<\n>        not ($exclude_dirs | any { |ex_dir| $ex_dir in $path_segments })<\n>    }<\n><\n>    let filter_excluded_files = { |file|<\n>        let base_name = ($file.name | path basename)<\n>        not ($base_name in $exclude_files)<\n>    }<\n><\n>    let filter_extensions = { |file|<\n>        if ($extensions == null or ($extensions | is-empty)) {<\n>            true<\n>        } else {<\n>            let ext = ($file.name | path parse | get extension)<\n>            $ext in $extensions<\n>        }<\n>    }<\n><\n>    let processed_files = (<\n>        $raw_files<\n>        | where $filter_excluded_dirs<\n>        | where $filter_excluded_files<\n>        | where $filter_extensions<\n>        | par-each { |file|<\n>            try {<\n>                # Reads stream directly to bypass structural parsing overhead<\n>                let line_count = (open --raw $file.name | lines | length)<\n>                { name: $file.name, lines: $line_count }<\n>            } catch {<\n>                { name: $file.name, lines: 0 }<\n>            }<\n>        }<\n>    )<\n><\n>    let total_files = ($processed_files | length)<\n>    <\n>    let total_lines = if $total_files > 0 {<\n>        $processed_files | get lines | math sum<\n>    } else {<\n>        0<\n>    }<\n><\n>    {<\n>        files_processed: $total_files, total_lines: $total_lines<\n>    }<\n>}
+count-loc
+ls **/*
+count-loc
+cls
+ls
+cls
+scoop cleanup -ak
+cls
+which nuj
+which nu
+scoop list util;
+scoop uninstall -p uutils-coreutils
+scoop cleanup -ak
+cls
+which nuj
+which nu
+cls
+exit
+def count-loc [<\n>    path: path = "."                    # The root directory to search (default: current)<\n>    --exclude: list<string> = [         # Directories to exclude<\n>        ".git", "target", "node_modules", "dist", "build"<\n>    ]<\n>] {<\n>    # Validate input path exists<\n>    if not ($path | path exists) {<\n>        error make { msg: $"Path does not exist: ($path)" }<\n>    }<\n><\n>    # Construct the exclusion pattern for glob<\n>    # Note: glob exclusion syntax depends on specific Nushell version nuances; <\n>    # explicit filtering post-glob is often more reliable for complex lists.<\n>    let files = (glob $"($path)/**/*")<\n><\n>    $files<\n>    | par-each {|file|<\n>        # 1. Filter: Must be a file<\n>        if ($file | path type) != "file" { return 0 }<\n><\n>        # 2. Filter: Check exclusions against path components<\n>        let components = ($file | path split)<\n>        if ($components | any {|part| $part in $exclude}) { return 0 }<\n><\n>        # 3. Execution: Count lines safely<\n>        # We use 'open --raw' to avoid auto-parsing formats like JSON/TOML,<\n>        # treating everything as text. 'try' handles binary read failures.<\n>        try {<\n>            open --raw $file | lines | length<\n>        } catch {<\n>            # Returns 0 for binaries or permission-locked files<\n>            0 <\n>        }<\n>    }<\n>    | math sum<\n>}
+count-loc
+ls **/*
+export def "count-loc" [<\n>    target_dir: path = "."<\n>    --extensions (-e): list<string><\n>    --exclude-dirs (-d): list<string> = [<\n>        ".git", "node_modules", "target", "build", "dist", <\n>        ".venv", "out", "vendor", "public", ".next", ".nuxt", "coverage"<\n>    ]<\n>    --exclude-files (-f): list<string> = [<\n>        "package-lock.json", "yarn.lock", "pnpm-lock.yaml", <\n>        "Cargo.lock", "poetry.lock", "Gemfile.lock"<\n>    ]<\n>]: nothing -> record<files_processed: int, total_lines: int> {<\n><\n>    let glob_pattern = ($target_dir | path join "**" "*" | into glob)<\n><\n>    let raw_files = (<\n>        ls -a $glob_pattern<\n>        | where type == file<\n>    )<\n><\n>    let filter_excluded_dirs = { |file|<\n>        let path_segments = ($file.name | into string | path split)<\n>        # Prevents substring collisions by evaluating exact directory node names<\n>        not ($exclude_dirs | any { |ex_dir| $ex_dir in $path_segments })<\n>    }<\n><\n>    let filter_excluded_files = { |file|<\n>        let base_name = ($file.name | path basename)<\n>        not ($base_name in $exclude_files)<\n>    }<\n><\n>    let filter_extensions = { |file|<\n>        if ($extensions == null or ($extensions | is-empty)) {<\n>            true<\n>        } else {<\n>            let ext = ($file.name | path parse | get extension)<\n>            $ext in $extensions<\n>        }<\n>    }<\n><\n>    let processed_files = (<\n>        $raw_files<\n>        | where $filter_excluded_dirs<\n>        | where $filter_excluded_files<\n>        | where $filter_extensions<\n>        | par-each { |file|<\n>            try {<\n>                # Reads stream directly to bypass structural parsing overhead<\n>                let line_count = (open --raw $file.name | lines | length)<\n>                { name: $file.name, lines: $line_count }<\n>            } catch {<\n>                { name: $file.name, lines: 0 }<\n>            }<\n>        }<\n>    )<\n><\n>    let total_files = ($processed_files | length)<\n>    <\n>    let total_lines = if $total_files > 0 {<\n>        $processed_files | get lines | math sum<\n>    } else {<\n>        0<\n>    }<\n><\n>    {<\n>        files_processed: $total_files, total_lines: $total_lines<\n>    }<\n>}
+count-loc
+cls
+which cls
+which g++
+cls
+count-lco
+count-loc
+cls
+count
+countdown.exe 
+countdown.exe 25s
+cls
+z thangkien
+exit
+ls
+vim doc/auth.mmd
+nvim doc/auth.mmd
+cls
+which z
+which zed
+which zod
+z --help
+which zoxide
+$env.config
+$env.config.buffer_editor
+config nu
+$env.config.buffer_editor = "zed"
+config nu
+which config
+git init
+git remote add origin git@github.com:ask4fusora/nushell-configurations.git
+git push
+git branch -m main
+git push
+git branch -M main
