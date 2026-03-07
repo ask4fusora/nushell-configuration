@@ -1,4 +1,5 @@
 .zed/
 
+os/
 env.nu
 history.txt
