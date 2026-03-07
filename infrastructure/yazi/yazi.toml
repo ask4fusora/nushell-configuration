@@ -1,0 +1,12 @@
+[mgr]
+ratio = [1, 1, 2]
+show_hidden = false
+title_format = ""
+tab_size = 2
+
+[opener]
+edit = [
+  { run = "nvim %*", block = true, desc = "Neovim", for = "windows" },
+  { run = "zed .", orphan = true, desc = "Zed (folder)", for = "windows" },
+  { run = "zed %*", orphan = true, desc = "Zed (file)", for = "windows" },
+]

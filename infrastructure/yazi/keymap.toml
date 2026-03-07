@@ -1,0 +1,4 @@
+[mgr]
+prepend_keymap = [
+  { on = "<Space>", run = "toggle", desc = "Toggle the current selection state" }
+]
