@@ -24,6 +24,10 @@ syntect_theme = "~/.config/yazi/Catppuccin-latte.tmTheme"
 [tabs]
 active   = { fg = "#eff1f5", bg = "#4c4f69", bold = true }
 inactive = { fg = "#4c4f69", bg = "#bcc0cc" }
+sep_left  = { open = "", close = "" }
+sep_right = { open = "", close = "" }
+sep_inner = { open = "", close = "" }
+sep_outer = { open = "", close = "" }
 
 [mode]
 normal_main = { fg = "#eff1f5", bg = "#179299", bold = true }
@@ -39,10 +43,11 @@ unset_alt   = { fg = "#dd7878", bg = "#ccd0da"}
 parent = { fg = "#eff1f5", bg = "#4c4f69" }
 current = { fg = "#eff1f5", bg = "#179299" }
 preview = { fg = "#eff1f5", bg = "#4c4f69" }
+padding = { open = "█", close = "" }
 
 [status]
-sep_left  = { open = "", close = "" }
-sep_right = { open = "", close = "" }
+sep_left  = { open = "", close = "" }
+sep_right = { open = "", close = "" }
 
 progress_label  = { fg = "#ffffff", bold = true }
 progress_normal = { fg = "#40a02b", bg = "#bcc0cc" }

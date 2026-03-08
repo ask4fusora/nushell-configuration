@@ -22,6 +22,10 @@ border_style  = { fg = "#8087a2" }
 [tabs]
 active   = { fg = "#24273a", bg = "#cad3f5", bold = true }
 inactive = { fg = "#cad3f5", bg = "#494d64" }
+sep_left  = { open = "", close = "" }
+sep_right = { open = "", close = "" }
+sep_inner = { open = "", close = "" }
+sep_outer = { open = "", close = "" }
 
 [mode]
 normal_main = { fg = "#24273a", bg = "#8bd5ca", bold = true }
@@ -37,10 +41,11 @@ unset_alt   = { fg = "#f0c6c6", bg = "#363a4f"}
 parent = { fg = "#24273a", bg = "#cad3f5" }
 current = { fg = "#24273a", bg = "#8bd5ca" }
 preview = { fg = "#24273a", bg = "#cad3f5" }
+padding = { open = "█", close = "" }
 
 [status]
-sep_left  = { open = "", close = "" }
-sep_right = { open = "", close = "" }
+sep_left  = { open = "", close = "" }
+sep_right = { open = "", close = "" }
 
 progress_label  = { fg = "#ffffff", bold = true }
 progress_normal = { fg = "#a6da95", bg = "#494d64" }
