@@ -4,7 +4,7 @@ def --env setup-env [] {
     $env.YAZI_CONFIG_HOME = $env.APPDATA | path join "nushell/infrastructure/yazi"
   }
 }
-export def --env yazi [...args] {
+export def --env ya [...args] {
   export-env { setup-env }
   ^yazi ...$args
 }
