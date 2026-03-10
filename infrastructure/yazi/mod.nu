@@ -4,8 +4,12 @@ def --env setup-env [] {
     $env.YAZI_CONFIG_HOME = $env.APPDATA | path join "nushell/infrastructure/yazi"
   }
 }
+export def --env yazi [...args] {
+  export-env { setup-env }
+  ^yazi ...$args
+}
 export def --env y [...args] {
-  export-env { setup-env  }
+  export-env { setup-env }
   let tmp = (mktemp -t "yazi-cwd.XXXXXX")
   ^yazi ...$args --cwd-file $tmp
   let cwd = (open $tmp)
