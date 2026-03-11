@@ -1,2 +1,2 @@
-export use zoxide.nu *
+export use zoxide *
 export use yazi *
