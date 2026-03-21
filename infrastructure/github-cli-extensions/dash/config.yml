@@ -86,3 +86,6 @@ keybindings:
     - key: v
       command: >
         gh pr review --repo {{.RepoName}} --approve --body "$(gum input --prompt='Approval Comment: ')" {{.PrNumber}}
+    - key: T
+      command: >
+        gh enhance -R {{.RepoName}} {{.PrNumber}}
