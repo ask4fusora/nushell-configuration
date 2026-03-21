@@ -52,7 +52,7 @@ defaults:
       assignees:
         hidden: false
       base:
-        hidden: false
+        hidden: true
     issues:
       creatorIcon:
         hidden: false
