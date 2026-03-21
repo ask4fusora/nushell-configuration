@@ -48,16 +48,16 @@ defaults:
   layout:
     prs:
       authorIcon:
-        hidden: false
+        hidden: true
       assignees:
-        hidden: true
+        hidden: false
       base:
-        hidden: true
+        hidden: false
     issues:
       creatorIcon:
         hidden: false
       assignees:
-        hidden: true
+        hidden: false
   refetchIntervalMinutes: 30
 
 theme:
