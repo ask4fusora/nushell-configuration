@@ -73,3 +73,16 @@ pager:
 confirmQuit: false
 showAuthorIcons: true
 smartFilteringAtLaunch: true
+
+keybindings:
+  universal:
+    - key: i
+      builtin: redraw
+
+  prs:
+    - key: L
+      command: >
+        gh pr ready --repo {{.RepoName}} {{.PrNumber}} --undo
+    - key: v
+      command: >
+        gh pr review --repo {{.RepoName}} --approve --body "$(gum input --prompt='Approval Comment: ')" {{.PrNumber}}
