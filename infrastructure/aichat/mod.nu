@@ -1,4 +1,9 @@
 use completions.nu *
+use build-env.nu *
+
+export-env {
+  aichat build-env
+}
 
 export extern "main" [
   --model(-m): string@"nu-complete aichat model"        # Select a LLM model.

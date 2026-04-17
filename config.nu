@@ -1,5 +1,9 @@
 use scripts\nu-scripts\modules\result
-use infrastructure *
+use infrastructure\aichat
+use infrastructure\zoxide *
+use infrastructure\yazi *
+use infrastructure\github-cli-extensions *
+use infrastructure\from *
 use os *
 $env.config.hooks.display_output = { result hook }
 $env.config.show_banner = false

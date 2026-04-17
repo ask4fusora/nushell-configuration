@@ -1,6 +1,6 @@
 def build-gh-dash-env [] {
   if $env.OS == "Windows_NT" { {
-    GH_DASH_CONFIG: ($env.APPDATA | path join "nushell/infrastructure/github-cli-extensions/dash/config.yml")
+    GH_DASH_CONFIG: ($env.APPDATA | path join "nushell/scripts/modules/github-cli-extensions/dash/config.yml")
   } } else { {} }
 }
 export def --wrapped "gh dash" [...args] {
