@@ -4,7 +4,7 @@ use modules\zoxide *
 use modules\yazi *
 use modules\github-cli-extensions *
 use modules\from *
-use os *
+use modules\os *
 $env.config.show_banner = false
 $env.config.shell_integration.osc133 = false
 $env.config.completions.algorithm = "Fuzzy"
