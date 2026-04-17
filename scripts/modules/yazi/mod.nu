@@ -6,6 +6,7 @@ export def --wrapped ya [...args] {
     ^yazi ...$args
   }
 }
+
 export def --env --wrapped y [...args] {
   let yazi_env = build-yazi-env
   let tmp = (mktemp -t "yazi-cwd.XXXXXX")
