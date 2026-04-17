@@ -3,7 +3,7 @@ def build-aichat-keybindings [] {
     {
       name: aichat_integration
       modifier: alt
-      keycode: char_e
+      keycode: char_l
       mode: [emacs, vi_insert]
       event: [
         {send: executehostcommand, cmd: "let previous = (commandline); if $previous == '' { return }; if (is-terminal --stdout) { print ' - ...' }; commandline edit -r (aichat -e $previous)"}
