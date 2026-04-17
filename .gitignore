@@ -3,3 +3,4 @@
 os/
 env.nu
 history.txt
+history.sqlite3
