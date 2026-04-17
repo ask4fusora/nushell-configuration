@@ -31,6 +31,29 @@ Not every module needs every file, but this is the preferred layout:
 - `keybindings.nu`: keybinding installers
 - `completions.nu`: completion providers
 
+## Namespace vs Leaf Modules
+
+Not every directory under `scripts/modules/` is a feature module.
+
+Namespace modules are grouping modules. They collect related submodules and may stay as small local
+barrels.
+
+Examples:
+
+- `github-cli-extensions`
+- `from`
+
+Leaf modules are the actual feature modules. They own commands, side effects, and concern files.
+
+Examples:
+
+- `aichat`
+- `zoxide`
+- `yazi`
+- `github-cli-extensions/dash`
+- `from/env`
+- `from/compose`
+
 ## Responsibilities
 
 `mod.nu` owns the public surface.
@@ -50,6 +73,8 @@ directly.
 
 For command-shaped modules, keep `export extern "main"` in `mod.nu` by default unless a split is
 known to work cleanly.
+
+Namespace roots may stay as thin barrels. Apply the fuller architecture mostly to leaf modules.
 
 ## Naming
 
@@ -74,3 +99,14 @@ These names should be terminologically correct and reusable across modules.
 
 If a new module needs similar startup behavior, follow the same pattern instead of inventing a new
 one.
+
+## When To Split
+
+Split a module into concern files when at least one of these is true:
+
+- it has startup side effects
+- `mod.nu` is getting crowded
+- there is internal logic worth separating
+- the naming and behavior pattern is reusable
+
+Otherwise, keep the leaf module small and keep the namespace root as a barrel.
