@@ -1,21 +1,10 @@
-def build-zoxide-config [] {
-  let config = (
-    $env.config? | default {} | upsert hooks { default {} } | upsert hooks.env_change { default {} } | upsert hooks.env_change.PWD { default [] }
-  )
-  let zoxide_hooked = $config.hooks.env_change.PWD | any { try { get __zoxide_hook } catch { false } }
-  if $zoxide_hooked { $config } else {
-    $config | upsert hooks.env_change.PWD ($config.hooks.env_change.PWD | append {
-        __zoxide_hook: true,
-        code: {|_, dir| ^zoxide add -- $dir}
-      })
-  }
+use build-env.nu *
+
+export-env {
+  zoxide build-env
 }
 
-def --env install-zoxide-hook [] { $env.config = (build-zoxide-config) }
-
 export def --env --wrapped z [...rest: string] {
-  install-zoxide-hook
-
   let path = match $rest {
     [] => { "~" }
     ["-"] => { "-" }
@@ -35,6 +24,5 @@ export def --env --wrapped z [...rest: string] {
 }
 
 export def --env --wrapped zi [...rest: string] {
-  install-zoxide-hook
   cd $'(^zoxide query --interactive -- ...$rest | str trim -r -c "\n")'
 }
