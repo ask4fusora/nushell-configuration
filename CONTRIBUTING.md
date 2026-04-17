@@ -8,7 +8,10 @@ This config is module-first. It does not use `source`.
 - Keep imports in `config.nu` explicit.
 - `mod.nu` is the entrypoint for a module.
 - If a module needs startup side effects, put `export-env` in that module's `mod.nu`.
+- `commands.nu` is optional. Use it when a module has enough public commands that `mod.nu` stops
+  being readable.
 - Keep the public surface small. Internal helpers should stay internal.
+- Keep `export extern "main"` in `mod.nu` by default.
 - Name helpers by behavior:
   - `build-*` for pure constructors
   - `with-*` for pure transformers

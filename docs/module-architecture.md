@@ -24,6 +24,7 @@ entrypoint.
 Not every module needs every file, but this is the preferred layout:
 
 - `mod.nu`: module entrypoint and public surface
+- `commands.nu`: optional public command definitions for larger modules
 - `build-env.nu`: startup orchestration
 - `env.nu`: environment-specific installers
 - `hooks.nu`: hook installers
@@ -34,13 +35,21 @@ Not every module needs every file, but this is the preferred layout:
 
 `mod.nu` owns the public surface.
 
+`commands.nu` is optional. Use it when a module has enough exported commands that `mod.nu` becomes
+too busy.
+
 If the module has startup side effects, `mod.nu` also owns `export-env` and calls the module's env
 pipeline there.
+
+`mod.nu` should still remain the module entrypoint even when `commands.nu` exists.
 
 `build-env.nu` is an orchestrator. It should call the relevant installers, not hold unrelated logic
 directly.
 
 `env.nu`, `hooks.nu`, and `keybindings.nu` hold the concern-specific installers and helpers.
+
+For command-shaped modules, keep `export extern "main"` in `mod.nu` by default unless a split is
+known to work cleanly.
 
 ## Naming
 
