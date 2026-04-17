@@ -1,7 +1,5 @@
 .zed/
 
-/os/
-/env.nu
 /history.txt
 /history.sqlite3
 /history.sqlite3-shm
