@@ -1,5 +1,5 @@
 export def build-aichat-env [] {
-  {AICHAT_SHELL: "nu"}
+  {AICHAT_SHELL: "Nushell"}
 }
 
 export def --env install-aichat-env [] {
