@@ -6,7 +6,7 @@ def build-aichat-keybindings [] {
       keycode: char_l
       mode: [emacs, vi_insert]
       event: [
-        {send: executehostcommand, cmd: "let previous = (commandline); if $previous == '' { return }; if (is-terminal --stdout) { print ' - ...' }; commandline edit -r (aichat -e $previous)"}
+        {send: executehostcommand, cmd: "let commandline_text = (commandline); if ($commandline_text | str trim) != '' { if (is-terminal --stdout) { print ' - ...' }; commandline edit -r (aichat -e $commandline_text) }"}
       ]
     }
   ]
