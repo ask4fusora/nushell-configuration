@@ -3,5 +3,5 @@ export def --wrapped linux-cb [...rest] {
 }
 
 export def --wrapped linux-sudo [...rest] {
-  ^sudo ...$rest
+  if ($rest | is-empty) { ^sudo nu } else { ^sudo nu -c ($rest | str join ' ') }
 }
