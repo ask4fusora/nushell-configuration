@@ -1,10 +1,10 @@
 use windows *
 use linux *
-use linux/build-env.nu *
 use macos *
+use build-env.nu *
 
 export-env {
-  linux build-env
+  os build-env
 }
 
 export def --wrapped cb [...rest] {
