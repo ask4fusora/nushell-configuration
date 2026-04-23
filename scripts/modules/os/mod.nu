@@ -1,6 +1,11 @@
 use windows *
 use linux *
+use linux/build-env.nu *
 use macos *
+
+export-env {
+  linux build-env
+}
 
 export def --wrapped cb [...rest] {
   match $env.OS {
