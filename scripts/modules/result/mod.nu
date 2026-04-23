@@ -1,4 +1,4 @@
-use nu-scripts\modules\result
+use nu-scripts/modules/result
 
 export-env {
   $env.NU_RESULTS = {
