@@ -1,3 +1,4 @@
+use windows/build-env.nu *
 use linux/build-env.nu *
 
 export def --env install-os-env [] {
@@ -6,7 +7,7 @@ export def --env install-os-env [] {
   }
 
   match $env.OS {
-    "Windows_NT" => { }
+    "Windows_NT" => { windows build-env }
     "Darwin" => { }
     _ => { linux build-env }
   }
