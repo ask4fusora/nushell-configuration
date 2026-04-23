@@ -10,4 +10,8 @@ export def --env install-os-env [] {
     "Darwin" => { }
     _ => { linux build-env }
   }
+
+  if $env.HOME? == null {
+    $env.HOME = '~' | path expand
+  }
 }
