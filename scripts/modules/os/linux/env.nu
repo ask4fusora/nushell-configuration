@@ -1,9 +1,9 @@
 export def --env install-linux-env [] {
-  let cargo_bin = $env.HOME | path join ".cargo" "bin"
+  let home = '~' | path expand
+  let cargo_bin = $home | path join ".cargo" "bin"
 
   $env.PATH = (
     $env.PATH
-    | split row (char esep)
     | append [
       $cargo_bin
     ]
