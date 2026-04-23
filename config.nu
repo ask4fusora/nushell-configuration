@@ -3,6 +3,7 @@ $env.config.shell_integration.osc133 = false
 $env.config.completions.algorithm = "Fuzzy"
 $env.config.history.file_format = "Sqlite"
 
+use modules/env-configuration *
 use modules/aichat
 use modules/zoxide *
 use modules/yazi *
