@@ -5,7 +5,7 @@ export def --env install-linux-env [] {
 
   $env.PATH = (
     $env.PATH
-    | append [
+    | prepend [
       $cargo_bin,
       $local_bin
     ]
