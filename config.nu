@@ -14,3 +14,9 @@ use modules/vi
 use modules/result *
 use nu-scripts/custom-completions/scoop/scoop-completions.nu *
 use nu-scripts/custom-completions/winget/winget-completions.nu *
+use nu-scripts/custom-completions/uv/uv-completions.nu *
+use nu-scripts/custom-completions/typst/typst-completions.nu *
+use nu-scripts/custom-completions/podman/podman-completions.nu *
+use nu-scripts/custom-completions/ssh/ssh-completions.nu *
+use nu-scripts/custom-completions/rg/rg-completions.nu *
+use nu-scripts/custom-completions/op/op-completions.nu *
