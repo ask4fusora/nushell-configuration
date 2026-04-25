@@ -13,3 +13,4 @@ use modules/os *
 use modules/vi
 use modules/result *
 use nu-scripts/custom-completions/scoop/scoop-completions.nu *
+use nu-scripts/custom-completions/winget/winget-completions.nu *
