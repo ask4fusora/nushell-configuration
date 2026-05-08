@@ -1,8 +1,3 @@
-$env.config.show_banner = false
-$env.config.shell_integration.osc133 = false
-$env.config.completions.algorithm = "Fuzzy"
-$env.config.history.file_format = "Sqlite"
-
 use modules/env-configuration *
 use modules/aichat
 use modules/zoxide *
@@ -21,3 +16,10 @@ use nu-scripts/custom-completions/podman/podman-completions.nu *
 use nu-scripts/custom-completions/ssh/ssh-completions.nu *
 use nu-scripts/custom-completions/rg/rg-completions.nu *
 use nu-scripts/custom-completions/op/op-completions.nu *
+
+$env.config.show_banner = false
+$env.config.shell_integration.osc133 = false
+$env.config.completions.algorithm = "Fuzzy"
+$env.config.history.file_format = "Sqlite"
+
+use user-configurations.nu *
