@@ -22,5 +22,6 @@ $env.config.show_banner = false
 $env.config.shell_integration.osc133 = false
 $env.config.completions.algorithm = "Fuzzy"
 $env.config.history.file_format = "Sqlite"
+$env.config.filesize.unit = "binary"
 
 use user-configurations.nu *
