@@ -9,6 +9,7 @@ use modules/vi
 use modules/wezterm *
 use modules/result *
 use modules/superuser-nushell *
+use modules/uv-python *
 use nu-scripts/custom-completions/scoop/scoop-completions.nu *
 use nu-scripts/custom-completions/winget/winget-completions.nu *
 use nu-scripts/custom-completions/uv/uv-completions.nu *
