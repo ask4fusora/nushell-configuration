@@ -6,7 +6,6 @@ tab_size = 2
 
 [opener]
 edit = [
-  { run = "zed %S", orphan = true, desc = "Zed", for = "windows" },
-  { run = "nvim %S", block = true, desc = "Neovim", for = "windows" },
-  { run = "nvim %S", block = true, desc = "Neovim", for = "linux" },
+  { run = "zed %s", orphan = true, desc = "Zed" },
+  { run = "nvim %s", block = true, desc = "Neovim" },
 ]
