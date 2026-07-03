@@ -22,7 +22,7 @@ use nu-scripts/custom-completions/op/op-completions.nu *
 use nu-scripts/custom-completions/bat/bat-completions.nu *
 
 $env.config.show_banner = false
-$env.config.shell_integration.osc133 = false
+$env.config.shell_integration.osc133 = false # Until windows fixes its stupid ConPty.
 $env.config.completions.algorithm = "Fuzzy"
 $env.config.history.file_format = "Sqlite"
 $env.config.filesize.unit = "binary"
