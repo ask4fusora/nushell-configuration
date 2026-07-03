@@ -10,8 +10,9 @@ export-env {
 
     PROMPT_MULTILINE_INDICATOR: (^starship prompt --continuation)
 
-    # TODO: Also Use starship vi mode indicators?
     PROMPT_INDICATOR: "",
+    PROMPT_INDICATOR_VI_INSERT: "",
+    PROMPT_INDICATOR_VI_NORMAL: "",
 
     PROMPT_COMMAND: { ||
       (
