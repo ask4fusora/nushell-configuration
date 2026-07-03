@@ -26,5 +26,3 @@ $env.config.shell_integration.osc133 = false # Until windows fixes its stupid Co
 $env.config.completions.algorithm = "Fuzzy"
 $env.config.history.file_format = "Sqlite"
 $env.config.filesize.unit = "binary"
-
-use user-configurations.nu *
