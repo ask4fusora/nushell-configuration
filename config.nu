@@ -8,7 +8,7 @@ use modules/os *
 use modules/vi
 use modules/wezterm *
 use modules/result *
-use modules/superuser-nushell *
+use modules/admin *
 use modules/uv-python *
 use modules/zed *
 use nu-scripts/custom-completions/scoop/scoop-completions.nu *
