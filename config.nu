@@ -6,7 +6,6 @@ use modules/gh-cli *
 use modules/from *
 use modules/os *
 use modules/vi
-use modules/wezterm *
 use modules/result *
 use modules/admin *
 use modules/uv-python *
