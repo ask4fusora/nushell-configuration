@@ -1,4 +1,4 @@
-use modules/env-configuration *
+use modules/env *
 use modules/aichat
 use modules/zoxide *
 use modules/yazi *
