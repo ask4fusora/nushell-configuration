@@ -2,7 +2,7 @@ use modules/env-configuration *
 use modules/aichat
 use modules/zoxide *
 use modules/yazi *
-use modules/github-cli-extensions *
+use modules/gh-cli *
 use modules/from *
 use modules/os *
 use modules/vi
@@ -23,7 +23,11 @@ use nu-scripts/custom-completions/op/op-completions.nu *
 use nu-scripts/custom-completions/bat/bat-completions.nu *
 
 $env.config.show_banner = false
+
 $env.config.shell_integration.osc133 = false # Until windows fixes its stupid ConPty.
+
 $env.config.completions.algorithm = "Fuzzy"
+
 $env.config.history.file_format = "Sqlite"
+
 $env.config.filesize.unit = "binary"
