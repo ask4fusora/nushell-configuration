@@ -11,6 +11,7 @@ use modules/admin *
 use modules/uv-python *
 use modules/zed *
 use modules/starship *
+use modules/fzf *
 use nu-scripts/custom-completions/scoop/scoop-completions.nu *
 use nu-scripts/custom-completions/winget/winget-completions.nu *
 use nu-scripts/custom-completions/uv/uv-completions.nu *
