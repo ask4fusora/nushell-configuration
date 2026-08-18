@@ -6,7 +6,6 @@ use modules/gh-cli *
 use modules/from *
 use modules/os *
 use modules/vi
-use modules/result *
 use modules/admin *
 use modules/uv-python *
 use modules/zed *
@@ -31,3 +30,5 @@ $env.config.completions.algorithm = "Fuzzy"
 $env.config.history.file_format = "Sqlite"
 
 $env.config.filesize.unit = "binary"
+
+$env.config.max_last_result_size = 500Mb
