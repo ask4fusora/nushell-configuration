@@ -31,4 +31,4 @@ $env.config.history.file_format = "Sqlite"
 
 $env.config.filesize.unit = "binary"
 
-$env.config.max_last_result_size = 500Mb
+$env.config.max_last_result_size = 500MiB
