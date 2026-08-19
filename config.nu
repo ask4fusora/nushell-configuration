@@ -6,9 +6,7 @@ $env.config.completions.algorithm = "Fuzzy"
 
 $env.config.history.file_format = "Sqlite"
 
-$env.config.filesize.unit = "binary"
-
-$env.config.max_last_result_size = 500MiB
+$env.config.max_last_result_size = 500MB
 
 use modules/utils *
 use modules/from *
