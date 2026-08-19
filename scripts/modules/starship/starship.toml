@@ -1,5 +1,7 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
+format = ""
+
 right_format = """
 $directory\
 $git_branch\
