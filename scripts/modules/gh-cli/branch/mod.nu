@@ -3,6 +3,8 @@ export def "gh branches" [
   --remote(-r) # List remote branches.
   --with-origin-prefix # List branch names with `origin/` prefix.
 ]: nothing -> list<string> {
+  require-executable git
+
   mut branches: list<string> = []
 
   if $remote {

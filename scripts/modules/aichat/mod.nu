@@ -2,6 +2,8 @@ use completions.nu *
 use build-env.nu *
 
 export-env {
+  require-executable aichat
+
   aichat build-env
 }
 

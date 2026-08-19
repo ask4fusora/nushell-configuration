@@ -1,10 +1,14 @@
 use build-env.nu *
 
 export-env {
+  require-executable zoxide
+
   zoxide build-env
 }
 
 export def --env --wrapped z [...rest: string] {
+  require-executable zoxide
+
   let path = match $rest {
     [] => { "~" }
     ["-"] => { "-" }
@@ -24,5 +28,7 @@ export def --env --wrapped z [...rest: string] {
 }
 
 export def --env --wrapped zi [...rest: string] {
+  require-executable zoxide
+
   cd $'(^zoxide query --interactive -- ...$rest | str trim -r -c "\n")'
 }

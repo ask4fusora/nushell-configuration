@@ -1,4 +1,6 @@
 def query-aichat-completion-values [flag: string] {
+  require-executable aichat
+
   try {
     ^aichat $flag
     | lines

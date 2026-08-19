@@ -1,8 +1,12 @@
 export def --wrapped ya [...args] {
+  require-executable yazi
+
   ^yazi ...$args
 }
 
 export def --env --wrapped y [...args] {
+  require-executable yazi
+
   let tmp = (mktemp -t "yazi-cwd.XXXXXX")
 
   ^yazi ...$args --cwd-file $tmp

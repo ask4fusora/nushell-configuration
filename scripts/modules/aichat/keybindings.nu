@@ -27,5 +27,7 @@ def with-aichat-keybindings [] {
 }
 
 export def --env install-aichat-keybindings [] {
+  require-executable aichat
+
   $env.config = (with-aichat-keybindings)
 }

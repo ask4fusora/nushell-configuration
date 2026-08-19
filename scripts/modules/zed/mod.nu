@@ -1,5 +1,7 @@
 module completions {
   def "nu-complete zed completions" [] {
+    require-executable zed
+
     [
       "bash"
       "elvish"

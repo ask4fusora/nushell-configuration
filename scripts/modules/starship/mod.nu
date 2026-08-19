@@ -3,6 +3,8 @@
 # - module which can be used with `use starship.nu`.
 # - script which can be used with `source starship.nu`.
 export-env {
+  require-executable starship
+
   $env.STARSHIP_SHELL = "nu"
 
   load-env {
