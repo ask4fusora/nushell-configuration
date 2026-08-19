@@ -9,6 +9,7 @@ module completions {
       "zsh"
     ]
   }
+
   export extern zed [
     --wait(-w)                # Wait for all of the given paths to be opened/closed before exiting
     --add(-a)                 # Add files to the currently open workspace

@@ -23,6 +23,7 @@ export def "gh branches" [
 
   if $with_origin_prefix {
     let prefixed_branches = $branches | each {|b| $"origin/($b)" }
+
     return $prefixed_branches
   }
 

@@ -14,6 +14,7 @@ def build-aichat-keybindings [] {
 
 def with-aichat-keybindings [] {
   let config = $env.config? | default {} | upsert keybindings { default [] }
+
   let installed = ($config.keybindings | any {|binding|
     ($binding.name? | default "") == "aichat_integration"
   })

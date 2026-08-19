@@ -4,5 +4,6 @@ export def elevate [] {
 
 export def --wrapped sudo [...args] {
   let command = $args | str join ' '
+
   ^sudo nu -c $command
 }

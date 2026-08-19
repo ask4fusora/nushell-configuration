@@ -15,6 +15,7 @@ def with-zoxide-hooks [] {
     | upsert hooks.env_change { default {} }
     | upsert hooks.env_change.PWD { default [] }
   )
+
   let installed = ($config.hooks.env_change.PWD | any {|hook|
     ($hook.__zoxide_hook? | default false)
   })
