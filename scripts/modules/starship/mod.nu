@@ -1,66 +1,40 @@
-# this file is both a valid
-# - overlay which can be loaded with `overlay use starship.nu`.
-# - module which can be used with `use starship.nu`.
-# - script which can be used with `source starship.nu`.
 export-env {
   require-executable starship
 
-  $env.STARSHIP_SHELL = "nu"
-
   load-env {
-    STARSHIP_SESSION_KEY: (random chars -l 16)
+    STARSHIP_CONFIG: (
+      $nu.config-path
+      | path dirname
+      | path join scripts modules starship starship.toml
+    )
+    STARSHIP_SHELL: "nu",
+    STARSHIP_SESSION_KEY: (random chars --length=16)
 
-    PROMPT_MULTILINE_INDICATOR: (^starship prompt --continuation)
+    PROMPT_MULTILINE_INDICATOR: $"(ansi white_dimmed)· ",
 
-    PROMPT_INDICATOR: "",
-    PROMPT_INDICATOR_VI_INSERT: "",
-    PROMPT_INDICATOR_VI_NORMAL: "",
+    PROMPT_INDICATOR_VI_INSERT: { ||
+      let user_style = if (is-admin) {
+        ansi red_bold
+      } else {
+        ansi green_bold
+      }
 
-    PROMPT_COMMAND: { ||
-      (
-        # The initial value of `$env.CMD_DURATION_MS` is always `0823`, which is an official
-        # setting.
-        # See https://github.com/nushell/nushell/discussions/6402#discussioncomment-3466687.
-        let cmd_duration = if $env.CMD_DURATION_MS == "0823" { 0 } else { $env.CMD_DURATION_MS };
+      $"(char nl)($user_style):(ansi reset) "
+    },
 
-        ^starship prompt
-          --cmd-duration $cmd_duration
-          $"--status=($env.LAST_EXIT_CODE)"
-          --terminal-width (term size).columns
-          ...(
-            if (which "job list" | where type == built-in | is-not-empty) {
-              ["--jobs", (job list | length)]
-            } else {
-              []
-            }
-          )
-      )
-    }
+    PROMPT_INDICATOR_VI_NORMAL: { ||
+      let user_style = if (is-admin) {
+        ansi red_bold
+      } else {
+        ansi green_bold
+      }
 
-    config: ($env.config? | default {} | merge {
-      render_right_prompt_on_last_line: true
-    })
+      $"(char nl)($user_style)>(ansi reset) "
+    },
 
+    PROMPT_COMMAND: "",
     PROMPT_COMMAND_RIGHT: { ||
-      (
-        # The initial value of `$env.CMD_DURATION_MS` is always `0823`, which is an official
-        # setting.
-        # See https://github.com/nushell/nushell/discussions/6402#discussioncomment-3466687.
-        let cmd_duration = if $env.CMD_DURATION_MS == "0823" { 0 } else { $env.CMD_DURATION_MS };
-
-        ^starship prompt
-          --right
-          --cmd-duration $cmd_duration
-          $"--status=($env.LAST_EXIT_CODE)"
-          --terminal-width (term size).columns
-          ...(
-            if (which "job list" | where type == built-in | is-not-empty) {
-              ["--jobs", (job list | length)]
-            } else {
-              []
-            }
-          )
-      )
+      ^starship prompt --right --terminal-width=(term size | get columns)
     }
   }
 }

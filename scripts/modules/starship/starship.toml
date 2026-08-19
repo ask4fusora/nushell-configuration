@@ -1,0 +1,23 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+right_format = """
+$directory\
+$git_branch\
+$git_commit\
+$git_state
+"""
+
+[directory]
+truncation_length = 0
+format = '[in](purple dimmed) [$path( \($read_only\))]($style) '
+read_only = ''
+use_os_path_sep = false
+
+[git_branch]
+always_show_remote = true
+format = '[on](purple dimmed) [$branch]($style)[( [tracks](purple dimmed) $remote_name:$remote_branch)]($style) '
+style = 'green bold'
+
+[git_state]
+format = '[$state $progress_current/$progress_total]($style) '
+style = 'green bold'
