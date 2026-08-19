@@ -14,22 +14,22 @@ export-env {
 
     PROMPT_INDICATOR_VI_INSERT: { ||
       let user_style = if (is-admin) {
-        ansi red_bold
+        ansi red
       } else {
-        ansi green_bold
+        ansi magenta_dimmed
       }
 
-      $"(char nl)($user_style):(ansi reset) "
+      $"($user_style)runs(ansi reset) "
     },
 
     PROMPT_INDICATOR_VI_NORMAL: { ||
       let user_style = if (is-admin) {
-        ansi red_bold
+        ansi red
       } else {
-        ansi green_bold
+        ansi magenta_dimmed
       }
 
-      $"(char nl)($user_style)>(ansi reset) "
+      $"($user_style)prompts(ansi reset) "
     },
 
     PROMPT_COMMAND: "",
