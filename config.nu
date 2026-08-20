@@ -19,6 +19,7 @@ use modules/gh-cli *
 use modules/os *
 use modules/admin *
 use modules/uv-python *
+use modules/cloudflared *
 use nu-scripts/custom-completions/uv/uv-completions.nu *
 use modules/zed *
 use modules/starship *
