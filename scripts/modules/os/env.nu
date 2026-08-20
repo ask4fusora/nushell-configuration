@@ -13,6 +13,6 @@ export def --env install-os-env [] {
   }
 
   if $env.HOME? == null {
-    $env.HOME = '~' | path expand
+    $env.HOME = $nu.home-dir
   }
 }
