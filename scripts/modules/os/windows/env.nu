@@ -11,7 +11,7 @@ export def --env install-windows-env [] {
 
   $env.PATH = (
     $env.PATH
-    | prepend [
+    | append [
       $git_bin
     ]
     | uniq
