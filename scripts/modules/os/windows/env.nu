@@ -7,6 +7,7 @@ export def --env install-windows-env [] {
     | get path
     | path dirname
     | path join .. usr bin
+    | path expand -n
   )
 
   $env.PATH = (
